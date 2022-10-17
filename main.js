@@ -1,41 +1,74 @@
-const btn = document.querySelector(".btn");
-const sumar = document.querySelector(".sumar");
-const restar = document.querySelector(".restar");
-const multi = document.querySelector(".multi");
-const dividir = document.querySelector(".dividir");
+const display=document.querySelector('.display')
 
-sumar.addEventListener("click", suma);
+const operador=document.querySelector('.operador')
 
-function suma() {
-  const dato1 = +document.querySelector(".dato1").value;
-  const dato2 = +document.querySelector(".dato2").value;
+const suma=document.querySelector('#suma')
+const resta=document.querySelector('#resta')
+const multi=document.querySelector('#multipli')
+const divi=document.querySelector('#divi')
+const igual=document.querySelector('#igual')
+const borrar=document.querySelector('#borrar')
 
-  document.querySelector(".resultado").innerHTML = dato1 + dato2;
+const uno=document.querySelector('#uno')
+const dos=document.querySelector('#dos')
+const tres=document.querySelector('#tres')
+const cuatro=document.querySelector('#cuatro')
+const cinco=document.querySelector('#cinco')
+const seis=document.querySelector('#seis')
+const siete=document.querySelector('#siete')
+const ocho=document.querySelector('#ocho')
+const nueve=document.querySelector('#nueve')
+const diez=document.querySelector('#diez')
+
+let variable=document.getElementById('val1')
+
+let numero2=0
+
+for(let i=0; i<=9;i++){
+    document.getElementById('num'+i).addEventListener('click',presion)
 }
 
-restar.addEventListener("click", resta);
-
-function resta() {
-  const dato1 = +document.querySelector(".dato1").value;
-  const dato2 = +document.querySelector(".dato2").value;
-
-  document.querySelector(".resultado").innerHTML = dato1 - dato2;
+function presion(e){
+    display.innerText=display.innerText+e.target.value
 }
 
-multi.addEventListener("click", multiplicacion);
+suma.addEventListener('click',()=>{
+    operador.innerHTML='+'
+    variable=display.textContent
+    display.innerText=''
+})
 
-function multiplicacion() {
-  const dato1 = +document.querySelector(".dato1").value;
-  const dato2 = +document.querySelector(".dato2").value;
+resta.addEventListener('click',()=>{
+    operador.innerHTML='-'
+    variable=display.textContent
+    display.innerText=''
+})
 
-  document.querySelector(".resultado").innerHTML = dato1 * dato2;
-}
+multi.addEventListener('click',()=>{
+    operador.innerHTML='*'
+    variable=display.textContent
+    display.innerText=''
+})
 
-dividir.addEventListener("click", divi);
+divi.addEventListener('click',()=>{
+    operador.innerHTML='/'
+    variable=display.textContent
+    display.innerText=''
+})
 
-function divi() {
-  const dato1 = +document.querySelector(".dato1").value;
-  const dato2 = +document.querySelector(".dato2").value;
+borrar.addEventListener('click',()=>{
+    operador.innerText='.'
+    display.innerText=' '
+})
 
-  document.querySelector(".resultado").innerHTML = dato1 / dato2;
-}
+igual.addEventListener('click',()=>{
+    if(operador.innerText==='+'){
+        display.innerText=(parseInt(variable)+ parseInt(display.textContent))
+    }else if(operador.innerText==='-'){
+        display.innerText=(parseInt(variable)- parseInt(display.textContent))
+    }else if(operador.innerText==='*'){
+        display.innerText=(parseInt(variable)* parseInt(display.textContent))
+    }else if(operador.innerText==='/'){
+        display.innerText=(parseInt(variable)/ parseInt(display.textContent))
+    }
+})
