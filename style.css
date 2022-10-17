@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: gray;
+ 
+}
+.content{
+    border: solid 1px;
+    width: 300px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background-color: rgba(0, 128, 0, 0.37);
+    color:black;
+}
+input {
+    width: 100px;
+}
+
+button{
+    width: 50px;
+}
+
+.resultado{
+    border: solid 1px;
+    border-radius: 2px;
+}
